@@ -1,0 +1,263 @@
+:root {
+  --ink: #0a0c1f;
+  --panel: rgba(10, 12, 31, 0.72);
+  --gold: #e3b567;
+  --mist: #cfd3ea;
+  --white: #f5f6fb;
+  --max-width: 1024px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--ink);
+  font-family: "Work Sans", Arial, sans-serif;
+  color: var(--white);
+}
+
+/* Fixed full-viewport background layer. This fills the entire screen at all
+   times (not just the first screen's worth), and avoids the mobile-Safari
+   bug where background-attachment: fixed on body doesn't cover properly. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: url(images/keen_logo_background_subtle.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ---------- nav ---------- */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 18px 32px;
+  background: rgba(10, 12, 31, 0.55);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.brand {
+  font-family: "Bebas Neue", Arial, sans-serif;
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.nav-links a {
+  color: var(--mist);
+  text-decoration: none;
+  font-size: 15px;
+  margin-left: 22px;
+  transition: color 0.15s ease;
+}
+
+.nav-links a:first-child {
+  margin-left: 0;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  color: var(--gold);
+}
+
+/* ---------- hero ---------- */
+.hero {
+  min-height: calc(100vh - 68px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 24px;
+}
+
+.hero-inner {
+  max-width: 640px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--gold);
+  font-size: 15px;
+  letter-spacing: 0.08em;
+}
+
+.hero h1 {
+  margin: 0;
+  font-family: "Bebas Neue", Arial, sans-serif;
+  font-weight: 400;
+  font-size: clamp(56px, 12vw, 108px);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  color: var(--white);
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.55);
+}
+
+.hero-sub {
+  margin: 18px 0 32px;
+  font-size: 19px;
+  color: var(--mist);
+}
+
+.cta {
+  display: inline-block;
+  padding: 14px 32px;
+  background: var(--gold);
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 2px;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.cta:hover,
+.cta:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(227, 181, 103, 0.35);
+}
+
+/* ---------- sections ---------- */
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+section {
+  background: var(--panel);
+  border-radius: 4px;
+  padding: 48px;
+  margin: 32px 0;
+}
+
+section h2 {
+  font-family: "Bebas Neue", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 34px;
+  letter-spacing: 0.02em;
+  margin: 0 0 18px;
+  color: var(--gold);
+}
+
+.about p {
+  max-width: 62ch;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--mist);
+}
+
+.about a,
+main a {
+  color: var(--gold);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.gallery-item {
+  aspect-ratio: 1;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-item.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 14px;
+}
+
+/* ---------- footer ---------- */
+footer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 48px 24px 56px;
+  text-align: center;
+}
+
+footer h2 {
+  font-family: "Bebas Neue", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 34px;
+  letter-spacing: 0.02em;
+  color: var(--gold);
+  margin: 0 0 24px;
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.contact-item {
+  padding: 14px 24px;
+  background: var(--panel);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  color: var(--white);
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.contact-item:hover,
+.contact-item:focus-visible {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.footer-note {
+  margin-top: 32px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 640px) {
+  nav {
+    padding: 14px 18px;
+  }
+  .nav-links a {
+    margin-left: 14px;
+    font-size: 14px;
+  }
+  section {
+    padding: 32px 22px;
+  }
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
